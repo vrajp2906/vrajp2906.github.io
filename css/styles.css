@@ -1,0 +1,21 @@
+/* Custom styles for flower petals */
+.petal {
+    background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);
+    border-radius: 0 100% 0 100%;
+    position: absolute;
+}
+
+.flower-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+.petal:nth-child(2) { transform: rotate(72deg); }
+.petal:nth-child(3) { transform: rotate(144deg); }
+.petal:nth-child(4) { transform: rotate(216deg); }
+.petal:nth-child(5) { transform: rotate(288deg); }
+
+/* A few tiny quality-of-life improvements */
+html { scroll-behavior: smooth; }
