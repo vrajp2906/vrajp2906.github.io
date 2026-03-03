@@ -1,21 +1,141 @@
-/* Custom styles for flower petals */
-.petal {
-    background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);
-    border-radius: 0 100% 0 100%;
-    position: absolute;
+/* Base helpers */
+.nav-link {
+  color: #475569; /* muted */
+  transition: color 150ms ease;
+}
+.nav-link:hover {
+  color: #2563eb; /* accent */
 }
 
-.flower-container {
-    position: relative;
-    width: 100px;
-    height: 100px;
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.petal:nth-child(1) { transform: rotate(0deg); }
-.petal:nth-child(2) { transform: rotate(72deg); }
-.petal:nth-child(3) { transform: rotate(144deg); }
-.petal:nth-child(4) { transform: rotate(216deg); }
-.petal:nth-child(5) { transform: rotate(288deg); }
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e2e8f0; /* line */
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+}
 
-/* A few tiny quality-of-life improvements */
-html { scroll-behavior: smooth; }
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.card-text {
+  margin-top: 0.5rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  color: #2563eb;
+  font-weight: 600;
+}
+.card-link:hover {
+  text-decoration: underline;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+}
+.tag {
+  font-size: 0.85rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: #eff6ff; /* blue-50 */
+  color: #1d4ed8;      /* blue-700 */
+  border: 1px solid #dbeafe; /* blue-100 */
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.75rem 1.1rem;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  transition: transform 150ms ease, background 150ms ease;
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.75rem 1.1rem;
+  background: transparent;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+  transition: transform 150ms ease, border-color 150ms ease;
+}
+.btn-secondary:hover {
+  border-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* Icon buttons */
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.85);
+  color: #0f172a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 150ms ease, border-color 150ms ease;
+}
+.icon-btn:hover {
+  transform: translateY(-1px);
+  border-color: #2563eb;
+}
+
+/* Background blobs (replaces flower theme) */
+.blob {
+  position: absolute;
+  filter: blur(40px);
+  opacity: 0.55;
+}
+.blob-1 {
+  width: 520px;
+  height: 520px;
+  top: -120px;
+  left: -160px;
+  background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.35), transparent 60%);
+}
+.blob-2 {
+  width: 520px;
+  height: 520px;
+  bottom: -180px;
+  right: -180px;
+  background: radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.28), transparent 60%);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}

@@ -1,159 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vraj Patel | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vraj Patel</title>
+  <meta name="description" content="Vraj Patel — Software Developer and CS graduate. Projects in systems, backend, and web." />
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+  <!-- Tailwind config (neutral, non-flower theme) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#0f172a",     // slate-900-ish
+            muted: "#475569",   // slate-600-ish
+            line: "#e2e8f0",    // slate-200-ish
+            accent: "#2563eb",  // blue-600
+            soft: "#f8fafc"     // slate-50-ish
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body class="bg-gradient-to-br from-sky-100 via-white to-pink-100 font-sans">
+<body class="bg-soft text-ink font-sans">
 
-<!-- NAVBAR -->
-<nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200/50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="text-2xl font-serif font-bold text-gray-800">
-            Vraj Patel
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-line">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <!-- 1) Logo text -->
+        <div class="text-lg md:text-xl font-semibold tracking-tight">
+          Vraj Patel
         </div>
 
-        <div class="hidden md:flex space-x-8">
-            <a href="#home" class="text-gray-600 hover:text-pink-500">Home</a>
-            <a href="#about" class="text-gray-600 hover:text-pink-500">About</a>
-            <a href="#projects" class="text-gray-600 hover:text-pink-500">Projects</a>
-            <a href="#contact" class="text-gray-600 hover:text-pink-500">Contact</a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </div>
+
+        <button class="md:hidden text-muted" aria-label="Open menu" onclick="toggleMobileMenu()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+        <div class="flex flex-col space-y-3">
+          <a href="#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
+          <a href="#about" class="nav-link" onclick="toggleMobileMenu()">About</a>
+          <a href="#projects" class="nav-link" onclick="toggleMobileMenu()">Projects</a>
+          <a href="#skills" class="nav-link" onclick="toggleMobileMenu()">Skills</a>
+          <a href="#contact" class="nav-link" onclick="toggleMobileMenu()">Contact</a>
+        </div>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<!-- HERO -->
-<section id="home" class="min-h-screen flex items-center justify-center pt-20">
-    <div class="text-center px-6">
-        <h1 class="text-5xl md:text-6xl font-serif font-bold text-gray-800 mb-6">
-            Hi, I'm Vraj Patel
+  <!-- HERO -->
+  <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+    <!-- subtle background -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 w-full relative z-10">
+      <div class="max-w-3xl">
+        <!-- 2) Headline -->
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
+          Hi, I'm Vraj Patel.
         </h1>
 
-        <p class="text-xl md:text-2xl text-gray-600 mb-8">
-            Software Developer & CS SFU Graduate
+        <!-- 3) Subtitle -->
+        <p class="mt-5 text-lg md:text-xl text-muted leading-relaxed">
+          Software Developer & CS SFU Graduate.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="VrajPatel_Resume.pdf"
-               download
-               class="bg-pink-500 text-white px-8 py-3 rounded-full hover:bg-pink-600 transition-all shadow-lg">
-                Download My Resume
-            </a>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <!-- 4) CTA change -->
+          <a href="#contact" class="btn-primary">
+            Contact me
+          </a>
 
-            <a href="#contact"
-               class="border-2 border-pink-500 text-pink-500 px-8 py-3 rounded-full hover:bg-pink-500 hover:text-white transition-all">
-                Contact Me
-            </a>
+          <!-- 3) Resume download link -->
+          <!-- Put VrajPatel_Resume.pdf in the repo root (same folder as index.html) -->
+          <a href="VrajPatel_Resume.pdf" class="btn-secondary" download>
+            Download my resume
+          </a>
         </div>
+
+        <div class="mt-8 flex items-center gap-4">
+          <!-- GitHub -->
+          <a class="icon-btn" href="https://github.com/vrajp2906" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 .5a11.5 11.5 0 0 0-3.64 22.4c.58.1.8-.25.8-.56v-2.02c-3.27.72-3.96-1.4-3.96-1.4-.54-1.36-1.32-1.72-1.32-1.72-1.08-.73.08-.72.08-.72 1.2.08 1.83 1.22 1.83 1.22 1.06 1.82 2.78 1.3 3.46.99.1-.77.42-1.3.76-1.6-2.6-.3-5.34-1.3-5.34-5.78 0-1.28.46-2.33 1.22-3.15-.12-.3-.53-1.52.12-3.16 0 0 .99-.32 3.24 1.2a11.1 11.1 0 0 1 5.9 0c2.25-1.52 3.24-1.2 3.24-1.2.65 1.64.24 2.86.12 3.16.76.82 1.22 1.87 1.22 3.15 0 4.5-2.75 5.48-5.37 5.78.43.37.82 1.1.82 2.22v3.28c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z">
+              </path>
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a class="icon-btn" href="https://www.linkedin.com/in/vrajpatel29/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true">
+              <path
+                d="M20.45 20.45h-3.55v-5.56c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.66H9.37V9h3.41v1.56h.05c.48-.9 1.66-1.85 3.41-1.85 3.65 0 4.32 2.4 4.32 5.51v6.23zM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13zM3.56 20.45h3.56V9H3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.23 0z">
+              </path>
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a class="icon-btn" href="mailto:vraj2960@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true">
+              <path
+                d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- ABOUT -->
-<section id="about" class="py-20 bg-white/60">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-4xl font-serif font-bold text-gray-800 mb-6">About Me</h2>
-
-        <p class="text-gray-600 leading-relaxed">
-            I am a Computer Science graduate from Simon Fraser University with a strong
-            foundation in data structures, systems, and backend development.
-            I enjoy building clean, reliable software and continuously improving
-            through hands-on development.
-        </p>
-    </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="py-20">
+  <!-- ABOUT -->
+  <section id="about" class="py-20 bg-white border-t border-line">
     <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-serif font-bold text-gray-800 mb-4">Projects</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <div class="bg-white rounded-2xl shadow-lg p-6">
-                <h3 class="text-xl font-bold mb-3">Project One</h3>
-                <p class="text-gray-600 mb-4">
-                    Short description of your project.
-                </p>
-                <p class="text-sm text-gray-500 mb-4">
-                    Tech: Java, Spring Boot, PostgreSQL
-                </p>
-                <a href="#" class="text-pink-500 font-medium">View Project →</a>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-lg p-6">
-                <h3 class="text-xl font-bold mb-3">Project Two</h3>
-                <p class="text-gray-600 mb-4">
-                    Short description of your project.
-                </p>
-                <p class="text-sm text-gray-500 mb-4">
-                    Tech: Python, Flask, REST API
-                </p>
-                <a href="#" class="text-pink-500 font-medium">View Project →</a>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-lg p-6">
-                <h3 class="text-xl font-bold mb-3">Project Three</h3>
-                <p class="text-gray-600 mb-4">
-                    Short description of your project.
-                </p>
-                <p class="text-sm text-gray-500 mb-4">
-                    Tech: React, Node.js
-                </p>
-                <a href="#" class="text-pink-500 font-medium">View Project →</a>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-20 bg-white/60">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-4xl font-serif font-bold text-gray-800 mb-6">Contact Me</h2>
-
-        <p class="text-gray-600 mb-8">
-            Feel free to reach out.
+      <div class="max-w-3xl">
+        <h2 class="section-title">About</h2>
+        <p class="mt-4 text-muted leading-relaxed">
+          I’m a Software Developer with a strong foundation in computer science fundamentals and hands-on experience through
+          academic projects and internship work. I’ve worked with C++ and Python in Linux environments and I’m interested in
+          backend and systems-oriented development.
         </p>
-
-        <div class="flex justify-center gap-8 text-2xl">
-
-            <!-- Email -->
-            <a href="mailto:vraj2960@gmail.com" class="hover:text-pink-500">
-                ✉️
-            </a>
-
-            <!-- GitHub -->
-            <a href="https://github.com/vrajp2906" target="_blank" class="hover:text-pink-500">
-                🐙
-            </a>
-
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/vrajpatel29/" target="_blank" class="hover:text-pink-500">
-                💼
-            </a>
-
-        </div>
+        <p class="mt-4 text-muted leading-relaxed">
+          I enjoy solving problems, working through debugging, and building reliable implementations in team environments.
+        </p>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer class="py-8 border-t border-gray-200 text-center text-gray-600">
-    © <span id="year"></span> Vraj Patel
-</footer>
+  <!-- PROJECTS -->
+  <section id="projects" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <h2 class="section-title">Projects</h2>
+        <p class="mt-3 text-muted">
+          A few projects that reflect my interests in systems, backend logic, and practical software development.
+        </p>
+      </div>
 
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+      <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card">
+          <h3 class="card-title">Multi-Client TCP Chat Server</h3>
+          <p class="card-text">
+            Multi-threaded TCP server in C that handles concurrent clients and broadcasts messages using pthreads and basic synchronization.
+          </p>
+          <div class="tags">
+            <span class="tag">C</span><span class="tag">pthreads</span><span class="tag">Linux</span><span class="tag">TCP/IP</span>
+          </div>
+          <a class="card-link" href="#" target="_blank" rel="noreferrer">View on GitHub →</a>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">School Management System</h3>
+          <p class="card-text">
+            C++ desktop application managing students/courses/enrollments with GPA calculations and custom data structures.
+          </p>
+          <div class="tags">
+            <span class="tag">C++</span><span class="tag">OOP</span><span class="tag">Data Structures</span>
+          </div>
+          <a class="card-link" href="#" target="_blank" rel="noreferrer">View on GitHub →</a>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">GameInn</h3>
+          <p class="card-text">
+            Full-stack platform with Java backend + PostgreSQL and API integration to display game data and support user features.
+          </p>
+          <div class="tags">
+            <span class="tag">Java</span><span class="tag">PostgreSQL</span><span class="tag">JavaScript</span><span class="tag">REST API</span>
+          </div>
+          <a class="card-link" href="#" target="_blank" rel="noreferrer">View on GitHub →</a>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Heart Disease Prediction Model</h3>
+          <p class="card-text">
+            Binary classification model with feature cleaning, benchmarking, and evaluation of precision/recall trade-offs on imbalanced data.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Pandas</span>
+          </div>
+          <a class="card-link" href="#" target="_blank" rel="noreferrer">View on GitHub →</a>
+        </div>
+      </div>
+
+      <p class="mt-6 text-sm text-muted">
+        Tip: replace each “View on GitHub” link with your real repo URLs.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-20 bg-white border-t border-line">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <h2 class="section-title">Skills</h2>
+        <p class="mt-3 text-muted">
+          Based on my resume — grouped for clarity.
+        </p>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card">
+          <h3 class="card-title">Languages</h3>
+          <p class="card-text">C++, C, Python, Java, JavaScript, MATLAB, x86 Assembly (basic)</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Systems & Networking</h3>
+          <p class="card-text">Linux (Ubuntu), TCP/IP, Multithreading, basic concurrency concepts</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Backend & Databases</h3>
+          <p class="card-text">SQL, PostgreSQL, RESTful API integration</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Web</h3>
+          <p class="card-text">HTML, CSS, Bootstrap</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Tools</h3>
+          <p class="card-text">Git, Docker, AWS (EC2 deployment), Jira, Confluence</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Testing</h3>
+          <p class="card-text">Unit testing (GoogleTest), UI testing (Selenium)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="section-title">Contact</h2>
+      <p class="mt-3 text-muted max-w-2xl">
+        If you’d like to connect about software roles or projects, feel free to reach out.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <a href="mailto:vraj2960@gmail.com" class="btn-primary">Email: vraj2960@gmail.com</a>
+        <a href="https://www.linkedin.com/in/vrajpatel29/" target="_blank" rel="noreferrer" class="btn-secondary">LinkedIn</a>
+        <a href="https://github.com/vrajp2906" target="_blank" rel="noreferrer" class="btn-secondary">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 border-t border-line bg-white">
+    <div class="max-w-6xl mx-auto px-6 text-center text-muted">
+      <!-- 5) footer email -->
+      <p>
+        © <span id="year"></span> Vraj Patel · <a class="underline hover:text-ink" href="mailto:vraj2960@gmail.com">vraj2960@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("hidden");
+    }
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
